@@ -1,0 +1,41 @@
+name: 'Fix: Relatório de correção'
+description: Correção no Coin.
+title: 'fix: '
+labels: ['fix']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Preencha as informações da fix.
+
+  - type: textarea
+    id: fix_description
+    attributes:
+      label: 'Descrição da Correção'
+      description: Descrição clara e objetiva da correção proposta.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_behavior_description
+    attributes:
+      label: 'Comportamento Atual'
+      description: Descrição clara e objetiva do comportamento atual.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior_description
+    attributes:
+      label: 'Comportamento Esperado'
+      description: Descrição clara e objetiva do comportamento esperado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 'Evidências'
+      description: Prints, logs ou gravações de tela com exemplos da correção.
+    validations:
+      required: false

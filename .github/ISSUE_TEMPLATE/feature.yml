@@ -1,0 +1,33 @@
+name: 'Feature: Relatório de nova funcionalidade'
+description: Nova funcionalidade ou melhoria para o Coin.
+title: 'feat: '
+labels: ['feature']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Preencha as informações da feature.
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: 'Descrição da Funcionalidade'
+      description: Descrição clara e objetiva da funcionalidade proposta.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation_description
+    attributes:
+      label: 'Motivação da Funcionalidade'
+      description: Motivo para o desenvolivmento da feature de clara e objetiva.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 'Evidências'
+      description: Prints, logs ou gravações de tela com exemplos da funcionalidade.
+    validations:
+      required: false
