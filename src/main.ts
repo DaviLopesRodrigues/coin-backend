@@ -4,7 +4,10 @@ import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   const configService = app.get(ConfigService);
+
+  const PORT = configService.get<number>('PORT') ?? 3000;
 
   app.enableCors({
     origin: ['http://localhost:5173'],
@@ -14,7 +17,7 @@ async function bootstrap() {
     maxAge: 86400,
   });
 
-  const PORT = configService.get<number>('PORT') ?? 3000;
+  app.enableShutdownHooks();
 
   await app.listen(PORT);
 }
