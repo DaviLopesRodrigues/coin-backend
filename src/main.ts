@@ -18,7 +18,7 @@ async function bootstrap() {
     maxAge: 86400,
   });
   app.enableShutdownHooks();
-  app.useGlobalPipes(new ValidationPipe())
+  app.useGlobalPipes(new ValidationPipe({ transform: true }))
 
   await app.listen(PORT);
 }
