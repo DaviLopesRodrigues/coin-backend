@@ -4,6 +4,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import unusedImports from 'eslint-plugin-unused-imports';
+import { APP_FILTER } from '@nestjs/core';
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -15,11 +16,7 @@ export default tseslint.config(
         ...globals.node,
         ...globals.jest,
       },
-      sourceType: 'commonjs',
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
+     
     },
 
     
@@ -47,7 +44,9 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-argument': 'warn',
       "prettier/prettier": ["error", { endOfLine: "auto" }],
 
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
+
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
