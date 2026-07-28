@@ -7,9 +7,7 @@ import unusedImports from 'eslint-plugin-unused-imports';
 import { UseFilters } from '@nestjs/common';
 
 export default tseslint.config(
-  {
-    ignores: ['eslint.config.mjs'],
-  },
+
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   eslintPluginPrettierRecommended,
@@ -28,6 +26,7 @@ export default tseslint.config(
   },
 
   {
+    files: ['**/*.ts'],
     plugins: {
       'unused-imports': unusedImports,
     },
