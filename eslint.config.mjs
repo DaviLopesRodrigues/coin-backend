@@ -4,10 +4,8 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import unusedImports from 'eslint-plugin-unused-imports';
-import { UseFilters } from '@nestjs/common';
 
 export default tseslint.config(
-
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   eslintPluginPrettierRecommended,
@@ -23,10 +21,22 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
+
+    
   },
 
   {
-    files: ['**/*.ts', '**/*.js', '**/*.mjs'],
+    files: ['src/**/*.ts', 'test/**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+
+  {
+    files: ['**/*.{ts,js,mjs}'],
     plugins: {
       'unused-imports': unusedImports,
     },
