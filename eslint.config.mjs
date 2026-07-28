@@ -26,7 +26,7 @@ export default tseslint.config(
   },
 
   {
-    files: ['**/*.ts'],
+    files: ['**/*.ts', '**/*.js', '**/*.mjs'],
     plugins: {
       'unused-imports': unusedImports,
     },
