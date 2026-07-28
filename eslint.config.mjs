@@ -11,7 +11,7 @@ export default tseslint.config(
   ...tseslint.configs.recommendedTypeChecked,
   eslintPluginPrettierRecommended,
 
-  // 1. Configuração do TypeScript APENAS para arquivos dentro da src e test
+  // 1. Configuração e regras com checagem de tipos (apenas para arquivos TypeScript)
   {
     files: ['src/**/*.ts', 'test/**/*.ts'],
     languageOptions: {
@@ -24,9 +24,13 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
+    rules: {
+      '@typescript-eslint/no-floating-promises': 'warn',
+      '@typescript-eslint/no-unsafe-argument': 'warn',
+    },
   },
 
-  // 2. Desativa a checagem de tipos do TS para arquivos de configuração e raiz (.mjs, .js, .config.ts)
+  // 2. Desativa a checagem de tipos em arquivos JS/MJS fora da src
   {
     files: ['*.mjs', '*.js', '*.config.*'],
     extends: [tseslint.configs.disableTypeChecked],
@@ -37,7 +41,7 @@ export default tseslint.config(
     },
   },
 
-  // 3. Aplica as regras de unused-imports para TODOS os arquivos do projeto
+  // 3. Regras gerais e unused-imports para TODOS os arquivos do projeto
   {
     files: ['**/*.{ts,js,mjs}'],
     plugins: {
@@ -45,8 +49,6 @@ export default tseslint.config(
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn',
       'prettier/prettier': ['error', { endOfLine: 'auto' }],
 
       'no-unused-vars': 'off',
