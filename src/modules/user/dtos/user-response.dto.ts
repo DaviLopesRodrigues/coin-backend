@@ -1,20 +1,7 @@
 import { Exclude, Expose, Type } from 'class-transformer';
 import { DataResponseDTO } from 'src/common/dtos/data-response.dto';
 import { PaginatedResponseDTO } from 'src/common/dtos/paginated-response.dto';
-
-class Role {
-  @Expose()
-  id: string;
-
-  @Expose()
-  name: string;
-
-  @Exclude()
-  createdAt: Date;
-
-  @Exclude()
-  updatedAt: Date;
-}
+import { RoleRequestDTO } from '../../role/dtos/role-request.dto';
 
 export class UserResponseDTO {
   @Expose()
@@ -36,8 +23,8 @@ export class UserResponseDTO {
   roleId: string;
 
   @Expose()
-  @Type(() => Role)
-  role: Role;
+  @Type(() => RoleRequestDTO)
+  role: RoleRequestDTO;
 
   @Expose()
   createdAt: Date;

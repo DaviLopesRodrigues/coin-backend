@@ -20,6 +20,7 @@ import {
   UserResponseDTO,
 } from './dtos/user-response.dto';
 import { plainToInstance } from 'class-transformer';
+import { calculateTotalPages } from '../../common/calculate-total-pages';
 
 @Injectable()
 export class UserService {
@@ -76,7 +77,7 @@ export class UserService {
           page: page,
           limit: limit,
           total: total,
-          totalPages: Math.ceil(total / limit),
+          totalPages: calculateTotalPages(total, limit),
         },
       };
     } catch (error) {
