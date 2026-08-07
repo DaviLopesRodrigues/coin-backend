@@ -91,7 +91,7 @@ export class UserService {
     }
   }
 
-  async find(userId: string): Promise<FindUserResponseDTO> {
+  async findById(userId: string): Promise<FindUserResponseDTO> {
     try {
       const user = await this.prismaService.user.findFirst({
         where: {
@@ -161,7 +161,7 @@ export class UserService {
 
   async delete(userId: string): Promise<DeleteUserResponseDTO> {
     try {
-      await this.find(userId);
+      await this.findById(userId);
 
       const user = await this.prismaService.user.delete({
         where: {

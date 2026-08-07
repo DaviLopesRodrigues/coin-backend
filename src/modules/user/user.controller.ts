@@ -35,17 +35,15 @@ export class UserController {
   }
 
   @Get()
-  async list(
-    @Query() query: ListUserRequestDTO,
-  ): Promise<ListUserResponseDTO> {
+  async list(@Query() query: ListUserRequestDTO): Promise<ListUserResponseDTO> {
     return this.userService.list(query);
   }
 
   @Get(':userId')
-  async find(
+  async findById(
     @Param('userId', ParseUUIDPipe) userId: string,
   ): Promise<FindUserResponseDTO> {
-    return this.userService.find(userId);
+    return this.userService.findById(userId);
   }
 
   @Patch(':userId')
